@@ -19,6 +19,31 @@ $(function(){
     		return "特定對象";
     	}
     }
+    function listData(artData){
+    	var artLength = artData.length;
+		if(artLength!= 0){
+			for (i = 0; i < artLength; i++){
+				var name = artData[i].PRGNAME,
+					performer = artData[i].PRGACT,
+					date = artData[i].PRGDATE,
+					startTime = artData[i].PRGSTIME,
+					endTime = artData[i].PRGETIME,
+					place = artData[i].PRGPLACE,
+					description =artData[i].ITEMDESC,
+					img = artData[i].IMAGE1,
+					art = "<li class= 'col-md-4'> <h2>"+ name +"</h2>" + 
+						  " <img src= " + img + " >" + 
+					      "<p> 演出單位 : " + performer + "</p>" +
+					      "<p> 活動日期 : " + date + " "+ startTime +"~" +endTime+ "</p>" +
+					      "<p> 活動地點 : " + place + "</p>" + "</li> ";
+					      // "<p> 活動簡介 : " + description + "</p></li> "  ;			
+				$('#artBox').append(art);
+			}										
+		} else {
+			$('#artBox').append("<p>沒有符合的資料!</p>");
+		}
+    }
+
  
 	$('#serch').on('click', function(e){
 		e.preventDefault();
@@ -31,31 +56,16 @@ $(function(){
 					ticket = $('#ticket').val(),
 					itemLocation = checkLocation(location),
 					itemTicket = checkTicket(ticket),
-					src;
+					artData = [] ;
 				console.log(data);
-				
-
 				$.each(data,function(i,item){
-					if( itemLocation === item.ORGNAME && itemTicket === item.PRGTICKET ){
-						console.log(item.PRGNAME);
-						// ractive.set('comment',data)  ;
-						var name = item.PRGNAME,
-							performer = item.PRGACT,
-							date = item.PRGDATE,
-							startTime = item.PRGSTIME,
-							endTime = item.PRGETIME,
-							place = item.PRGPLACE,
-							description =item.ITEMDESC,
-							img = item.IMAGE1;
-							art = "<h2>"+ name +"</h2>" + 
-								  " <img src= " + img + " >" + 
-							      "<p> 演出單位 : " + performer + "</p>" +
-							      "<p> 活動日期 : " + date + " "+ startTime +"~" +endTime+ "</p>" +
-							      "<p> 活動地點 : " + place + "</p>" +
-							      "<p> 活動簡介 : " + description + "</p>"  ;
-						$('#artBox').append(art);
-					}	   
-				})	
+					if(itemLocation === item.ORGNAME && itemTicket === item.PRGTICKET){
+						artData.push(data[i]);
+					}
+				})
+				console.log(artData);
+				$('#artBox').empty();
+				listData(artData);			
 			}
 		})
 	});

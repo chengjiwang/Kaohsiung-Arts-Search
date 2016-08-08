@@ -1,8 +1,22 @@
-/*img {
-	height: 250px;
-    width: 250px;
+ul {
+	float: left;
+	margin-top: 8px;
+    padding-left: 0;
+    list-style: none;
+}
+li  {
+	display: inline;
+}
+li:last-child {
+	margin-right: 30px;
+	margin-left: 30px;
 }
 
-p {
-	height: 250px;
-}*/
+input {
+	float: left;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
