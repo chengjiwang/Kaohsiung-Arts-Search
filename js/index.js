@@ -31,11 +31,13 @@ $(function(){
 					place = artData[i].PRGPLACE,
 					description =artData[i].ITEMDESC,
 					img = artData[i].IMAGE1,
-					art = "<li class= 'col-md-4'> <h2>"+ name +"</h2>" + 
-						  " <img src= " + img + " >" + 
-					      "<p> 演出單位 : " + performer + "</p>" +
-					      "<p> 活動日期 : " + date + " "+ startTime +"~" +endTime+ "</p>" +
-					      "<p> 活動地點 : " + place + "</p>" + "</li> ";
+					art = "<div class='col-xs-12 col-md-4 item'>"+
+							  "<h3>"+ name +"</h3>" + 
+							  " <img src= " + img + " >" + 
+						      "<p> 演出單位 : " + performer + "</p>" +
+						      "<p> 活動日期 : " + date + " "+ startTime +"~" +endTime+ "</p>" +
+						      "<p> 活動地點 : " + place + "</p>" + 
+					      "</div> ";
 					      // "<p> 活動簡介 : " + description + "</p></li> "  ;			
 				$('#artBox').append(art);
 			}										
@@ -44,7 +46,6 @@ $(function(){
 		}
     }
 
- 
 	$('#serch').on('click', function(e){
 		e.preventDefault();
 		$.ajax({
