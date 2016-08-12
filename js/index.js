@@ -30,22 +30,39 @@ $(function(){
 					endTime = artData[i].PRGETIME,
 					place = artData[i].PRGPLACE,
 					description =artData[i].ITEMDESC,
-					img = artData[i].IMAGE1,
+					img = artData[i].IMAGE1,											 						      						 				      
 					art = "<div class='col-xs-12 col-md-4 item'>"+
-							  "<h3>"+ name +"</h3>" + 
+							  "<h4>"+ name +"</h4>" + 
 							  " <img src= " + img + " >" + 
 						      "<p> 演出單位 : " + performer + "</p>" +
 						      "<p> 活動日期 : " + date + " "+ startTime +"~" +endTime+ "</p>" +
 						      "<p> 活動地點 : " + place + "</p>" + 
-					      "</div> ";
-					      // "<p> 活動簡介 : " + description + "</p></li> "  ;			
-				$('#artBox').append(art);
-			}										
+					      "</div> ";			 
+				var $art = $(art);
+				$('#artBox').append($art);			
+			}
+												
 		} else {
 			$('#artBox').append("<p>沒有符合的資料!</p>");
 		}
+		
     }
+    $(window).scroll(function(){
+		var scrollValue = $(this).scrollTop(),
+			windowHeight = $(window).height()*0.5;
+		if(window.innerWidth > 992){
+			if (scrollValue > windowHeight) {
+				$('#up').fadeIn();
+			} else {
+				$('#up').fadeOut();
+			}
+		}
+	});
 
+    $('#up').click(function(){
+		$('html,body').animate({scrollTop:0}, 1000);
+	});
+ 
 	$('#serch').on('click', function(e){
 		e.preventDefault();
 		$.ajax({
@@ -66,11 +83,10 @@ $(function(){
 				})
 				console.log(artData);
 				$('#artBox').empty();
-				listData(artData);			
+				listData(artData);											
 			}
 		})
-	});
-	
+	});	
 });
 
 
