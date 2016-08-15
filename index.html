@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>高雄藝文活動</title> 
+    <link rel="stylesheet" href="css/bootstrap-3.3.7.min.css">   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <section class="container">
+        <div id="row">
+            <h1 class="text-center">高雄藝文活動</h1>  
+            <form class= "text-center col-md-12">
+                <div class="location">
+                    <label>活動地點 : </label>
+                    <select name="location" id="location">
+                        <option value="KaohsiungCulturalCenter">高雄市文化中心</option>
+                        <option value="KaohsiungMusicHall">高雄市音樂館</option>
+                        <option value="DadongArtsCenter">大東文化藝術中心</option>
+                        <option value="GangshanCulturalCenter"> 岡山文化中心</option>
+                    </select>  
+                </div>
+                <div class="ticket">
+                     <label>票 價 : </label>
+                    <select name="ticket" id="ticket">
+                        <option value="disfree">售票</option>
+                        <option value="free">免票</option>
+                        <option value="specific">特定對象</option>
+                    </select>     
+                </div>
+                <input id="serch" type="submit" value="搜尋" class= "btn btn-primary">
+            </form>
+            <div id="artBox" class="list-data col-xs-12 col-md-12">
+                
+            </div>
+            <div id="up"><i class="fa fa-angle-up"></i></div>
+        </div>
+    </section>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script src="js/index.js"></script>
+</body>
+</html>

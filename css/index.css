@@ -1,0 +1,41 @@
+body {
+	background: url("../img/school.png") repeat;
+}
+.location , .ticket {
+	display: inline-block;
+	font-size: 18px;
+}
+form .ticket {
+	margin: 30px;
+}
+.list-data .item {
+	height: 500px;
+}
+.list-data .item h4 {
+	height: 45px;
+	margin-bottom: 15px;
+	font-weight: bold;
+}
+
+.list-data .item img {
+	width: 100%;
+	height: 250px;
+	margin-bottom: 15px;
+}
+
+#up {
+	position: fixed;
+	right: 0;
+	bottom: 60px;
+	display: none;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	text-align: center;
+	background-color: #4da5f5;
+}
+#up .fa {
+	padding: 7px;
+	font-size: 30px;
+	color: #fff; 
+}
